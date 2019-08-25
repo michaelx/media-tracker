@@ -1,0 +1,47 @@
+{
+  "name": "media-tracker",
+  "version": "0.1.0",
+  "description": "Self-hosted open source media-tracker for tv shows and movies.",
+  "author": "Michael Xander",
+  "bugs": "https://github.com/michaelx/media-tracker/issues",
+  "license": "MIT",
+  "repository": "https://github.com/michaelx/media-tracker",
+  "dependencies": {
+    "axios": "^0.18.1",
+    "history": "^4.9.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-redux": "^7.1.0",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "3.1.1",
+    "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.88.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint ."
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 2 chrome version",
+      "last 2 firefox version",
+      "last 2 safari version"
+    ]
+  },
+  "devDependencies": {
+    "eslint-config-airbnb-base": "^14.0.0"
+  }
+}

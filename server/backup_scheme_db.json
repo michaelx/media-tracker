@@ -1,0 +1,29 @@
+{
+  "tv": [
+    {
+      "id": 1400,
+      "title": "Seinfeld",
+      "poster_path": "aCw8ONfyz3AhngVQa1E2Ss4KSUQ.jpg",
+      "tracked": true,
+      "done": false,
+      "seasons": [
+        {
+          "number": 1,
+          "done_episodes": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "number": 2,
+          "done_episodes": [
+            1
+          ]
+        }
+      ]
+    }
+  ],
+  "movie": [
+  ]
+}
