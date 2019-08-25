@@ -26,6 +26,18 @@ As it’s work in progress, there are no tests and error handling yet. Use at yo
 
 [Video demonstration](https://youtu.be/6DcEnZWRwLA) on YouTube.
 
+### Screenshots
+
+**Discover screen**
+
+![Discover Screen](https://github.com/michaelx/media-tracker/blob/master/docs/screenshots/discover.png?raw=true)
+
+**Season screen**
+
+![Season Screen](https://github.com/michaelx/media-tracker/blob/master/docs/screenshots/season.png?raw=true)
+
+[More screenshots](https://github.com/michaelx/media-tracker/tree/master/docs/screenshots).
+
 ## Usage and development
 
 The project is split into `client` and `server`. Latter is a simple [JSON Server](https://github.com/typicode/json-server) at the moment.
