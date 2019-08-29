@@ -1,6 +1,8 @@
 import mediaTracker from '../apis/mediaTracker';
 import TMDb from '../apis/TMDb';
 
+const getTimestamp = () => Math.floor(Date.now() / 1000);
+
 
 // UI
 export const selectNavItem = (item) => ({
@@ -55,6 +57,8 @@ export const addTodo = (data, category, extraData) => async (dispatch) => {
     poster_path,
     tracked: true,
     done: false,
+    created: getTimestamp(),
+    updated: getTimestamp(),
   };
 
   if (category === 'tv') {
@@ -82,7 +86,11 @@ export const updateTodo = (id, category, data) => async (dispatch, getState) => 
     await dispatch(addTodo(mediaDetails, category));
   }
 
-  const response = await mediaTracker.patch(`/${category}/${id}`, data);
+  const additionalData = {
+    updated: getTimestamp(),
+  };
+
+  const response = await mediaTracker.patch(`/${category}/${id}`, { ...data, ...additionalData });
 
   dispatch({
     type: 'UPDATE_TODO',
@@ -98,14 +106,16 @@ export const updateTodoSeason = (id, category, seasonData) => async (dispatch, g
   const { seasons } = getState().selectedTodo;
 
   // If not, add it before updating the data
-  let response = null;
-  if (seasons) {
-    response = await mediaTracker.patch(`/${category}/${id}`, { seasons: { ...seasons, ...seasonData } });
-  } else {
+  if (!seasons) {
     const { mediaDetails } = getState();
     await dispatch(addTodo(mediaDetails, category, { tracked: true }));
-    response = await mediaTracker.patch(`/${category}/${id}`, { seasons: seasonData });
   }
+
+  const data = {
+    updated: getTimestamp(),
+    seasons: { ...seasons, ...seasonData },
+  };
+  const response = await mediaTracker.patch(`/${category}/${id}`, data);
 
   dispatch({
     type: 'UPDATE_SEASONS_TODO',
