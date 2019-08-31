@@ -2,13 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { Card, Image } from 'semantic-ui-react';
-import imgNoCover from '../images/no_cover.png';
-
-// @TODO: Refactor as global helper function
-const getCoverImage = (apiData) => {
-  if (!apiData) return imgNoCover;
-  return `https://image.tmdb.org/t/p/w370_and_h556_bestv2/${apiData}`;
-};
+import { getCoverImage } from '../helpers/utils';
 
 const MediaCard = ({ data, category }) => {
   const title = data.name || data.title;

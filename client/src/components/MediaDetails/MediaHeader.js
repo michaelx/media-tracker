@@ -8,13 +8,7 @@ import {
   Label,
   Popup,
 } from 'semantic-ui-react';
-import imgNoCover from '../../images/no_cover.png';
-
-// @TODO: Refactor as global helper function
-const getCoverImage = (src) => {
-  if (!src) return imgNoCover;
-  return `https://image.tmdb.org/t/p/w370_and_h556_bestv2/${src}`;
-};
+import { getCoverImage } from '../../helpers/utils';
 
 
 const MediaHeader = (props) => {

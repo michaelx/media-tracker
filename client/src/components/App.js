@@ -1,7 +1,7 @@
 import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import { Container } from 'semantic-ui-react';
-import history from '../history';
+import history from '../helpers/history';
 
 import DiscoverPage from '../containers/DiscoverPage';
 import DonePage from '../containers/DonePage';
