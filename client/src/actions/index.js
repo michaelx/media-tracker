@@ -28,7 +28,7 @@ export const clearSelectedSeason = () => ({
 
 // Tracking (the To Do’s)
 export const fetchAllTodos = (category) => async (dispatch) => {
-  const response = await mediaTracker.get(`/${category}`);
+  const response = await mediaTracker.get(`/${category}?_sort=updated&_order=desc`);
 
   dispatch({
     type: 'FETCH_ALL_TODOS_OF_CATEGORY',
@@ -131,7 +131,7 @@ export const clearSelectedTodo = () => ({
 
 // @TODO: Refactor
 export const fetchAllDone = (category) => async (dispatch) => {
-  const response = await mediaTracker.get(`/${category}`);
+  const response = await mediaTracker.get(`/${category}?_sort=updated&_order=desc`);
 
   dispatch({
     type: 'FETCH_ALL_DONE_OF_CATEGORY',
