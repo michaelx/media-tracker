@@ -96,6 +96,13 @@ const MediaHeader = (props) => {
       }
     />
   );
+
+  const renderGenres = (genres) => (
+    <Label>
+      Genre{genres.length > 1 && 's'}
+      <Label.Detail>{genres.map((genre) => genre.name).join(', ')}</Label.Detail>
+    </Label>
+  );
   /* eslint-enable camelcase */
 
 
@@ -110,10 +117,11 @@ const MediaHeader = (props) => {
         <div>
           {category === 'tv' && renderTVLabels(mediaData)}
           <Label>
-            Status
-            <Label.Detail>{mediaData.status}</Label.Detail>
+            {mediaData.status}
+            {category === 'movie' && <Label.Detail>{mediaData.release_date}</Label.Detail>}
           </Label>
           {mediaData.vote_count >= 10 && renderScore(mediaData)}
+          {mediaData.genres.length > 0 && renderGenres(mediaData.genres)}
         </div>
 
         <Divider hidden />
