@@ -4,6 +4,7 @@ import allTodosReducer from './allTodosReducer';
 import doneTodosReducer from './doneTodosReducer';
 import mediaDetailsReducer from './mediaDetailsReducer';
 import mediaEpisodesReducer from './mediaEpisodesReducer';
+import relatedMediaReducer from './relatedMediaReducer';
 import searchReducer from './searchReducer';
 import todoReducer from './todoReducer';
 import trendingReducer from './trendingReducer';
@@ -14,6 +15,7 @@ export default combineReducers({
   doneTodos: doneTodosReducer,
   mediaDetails: mediaDetailsReducer,
   mediaEpisodes: mediaEpisodesReducer,
+  relatedMedia: relatedMediaReducer,
   searchResult: searchReducer,
   selectedTodo: todoReducer,
   trendingMedia: trendingReducer,

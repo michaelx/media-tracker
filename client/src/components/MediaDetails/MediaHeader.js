@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import {
   Button,
@@ -138,6 +139,12 @@ const MediaHeader = (props) => {
 
         {renderTrackButton()}
         {renderStatusButton()}
+        <Button
+          as={Link}
+          to={`/discover/related/${category}/${id}`}
+         >
+          Related media
+        </Button>
       </Grid.Column>
     </Grid.Row>
   );

@@ -9,6 +9,7 @@ The project is work in progress, right now you can:
 - Search tv shows and movies
 - Explore trending tv shows and movies
 - Explore seasons of a tv show
+- Explore related *(similar, recommended)* media of a tv show or movie
 - Track/untrack tv shows and movies
 - Mark/unmark tv shows and movies as watched
 - Mark/unmark individual seasons of tv shows as watched

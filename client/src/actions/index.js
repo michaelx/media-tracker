@@ -181,6 +181,10 @@ export const fetchMediaDetails = (id, category) => async (dispatch) => {
   });
 };
 
+export const clearMediaDetails = () => ({
+  type: 'CLEAR_MEDIA_DETAILS',
+});
+
 export const fetchMediaEpisodes = (id, season) => async (dispatch) => {
   const response = await TMDb.get(`/tv/${id}/season/${season}`);
 
@@ -190,6 +194,15 @@ export const fetchMediaEpisodes = (id, season) => async (dispatch) => {
   });
 };
 
-export const clearMediaDetails = () => ({
-  type: 'CLEAR_MEDIA_DETAILS',
-});
+export const fetchRelatedMedia = (id, category, page = 1) => async (dispatch) => {
+  const response = await TMDb.get(`/${category}/${id}/recommendations`, {
+    params: {
+      page,
+    },
+  });
+
+  dispatch({
+    type: 'FETCH_RELATED_MEDIA',
+    payload: response.data,
+  });
+};
