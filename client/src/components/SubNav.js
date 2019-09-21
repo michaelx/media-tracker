@@ -8,15 +8,15 @@ const SubNav = ({ activeItem, onCategoryClick }) => {
     <React.Fragment>
       <Menu attached="top">
         <Menu.Item
-          name="tv"
           active={activeItem === 'tv'}
+          name="tv"
           onClick={handleOnClick}
         >
           TV Shows
         </Menu.Item>
         <Menu.Item
-          name="movie"
           active={activeItem === 'movie'}
+          name="movie"
           onClick={handleOnClick}
         >
           Movies

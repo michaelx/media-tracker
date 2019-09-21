@@ -14,14 +14,12 @@ class SeasonsContainer extends React.Component {
   onDropdownChange = (event, { value }) => this.props.selectSeason(value);
 
 
-  // eslint-disable-next-line camelcase
-  getDropdownOptions = (number_of_seasons) => {
+  getDropdownOptions = (numberOfSeasons) => {
     const dropdownOptions = [];
 
     // Generate dropdown options
     // Start at 1, as TMDb stores “Specials” on index 0
-    // eslint-disable-next-line camelcase
-    for (let i = 1; i <= number_of_seasons; i++) {
+    for (let i = 1; i <= numberOfSeasons; i++) {
       dropdownOptions.push({
         key: i,
         text: `Season ${i}`,

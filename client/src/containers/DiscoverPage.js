@@ -35,7 +35,7 @@ class Discover extends React.Component {
     const { searchResult, trendingMedia } = this.props;
 
     return (
-      <div>
+      <React.Fragment>
         <SubNavContainer />
         <Segment attached>
           <h3>Search for something new</h3>
@@ -46,7 +46,7 @@ class Discover extends React.Component {
             items={searchResult.results}
           />
 
-          <Divider horizontal>Or</Divider>
+          <Divider horizontal section>Or</Divider>
 
           <h3>Check out what’s trending</h3>
           <MediaCardList
@@ -54,7 +54,7 @@ class Discover extends React.Component {
             items={trendingMedia.results}
           />
         </Segment>
-      </div>
+      </React.Fragment>
     );
   }
 }

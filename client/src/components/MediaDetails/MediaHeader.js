@@ -19,9 +19,21 @@ const MediaHeader = (props) => {
     todo,
   } = props;
 
-  // Data mapping
-  const title = mediaData.name || mediaData.title;
-  const imgCover = getCoverImage(mediaData.poster_path);
+  const {
+    genres,
+    id,
+    name: title = mediaData.title,
+    number_of_episodes: numberOfEpisodes,
+    number_of_seasons: numberOfSeasons,
+    overview,
+    poster_path: posterPath,
+    release_date: releaseDate,
+    status,
+    vote_average: voteAverage,
+    vote_count: voteCount,
+  } = mediaData;
+
+  const imgCover = getCoverImage(posterPath);
 
 
   const renderTrackButton = () => {
@@ -37,9 +49,9 @@ const MediaHeader = (props) => {
 
     return (
       <Button
-        primary={trackButton.boolValue}
         negative={!trackButton.boolValue}
         onClick={() => handleUpdate({ tracked: trackButton.boolValue })}
+        primary={trackButton.boolValue}
       >
         {trackButton.text}
       </Button>
@@ -60,50 +72,48 @@ const MediaHeader = (props) => {
 
     return (
       <Button
-        primary={statusButton.boolValue}
         negative={!statusButton.boolValue}
         onClick={() => handleUpdate({ done: statusButton.boolValue })}
+        primary={statusButton.boolValue}
       >
         Mark as {statusButton.text}
       </Button>
     );
   };
 
-  /* eslint-disable camelcase */
-  const renderTVLabels = ({ number_of_seasons, number_of_episodes }) => (
+  const renderTVLabels = () => (
     <React.Fragment>
       <Label>
         Seasons
-        <Label.Detail>{number_of_seasons}</Label.Detail>
+        <Label.Detail>{numberOfSeasons}</Label.Detail>
       </Label>
       <Label>
         Episodes
-        <Label.Detail>{number_of_episodes}</Label.Detail>
+        <Label.Detail>{numberOfEpisodes}</Label.Detail>
       </Label>
     </React.Fragment>
   );
 
-  const renderScore = ({ vote_count, vote_average }) => (
+  const renderScore = () => (
     <Popup
+      content={`${voteCount} votes`}
       position="bottom center"
-      content={`${vote_count} votes`}
       size="small"
       trigger={
         <Label>
           Score
-          <Label.Detail>{vote_average}</Label.Detail>
+          <Label.Detail>{voteAverage}</Label.Detail>
         </Label>
       }
     />
   );
 
-  const renderGenres = (genres) => (
+  const renderGenres = () => (
     <Label>
       Genre{genres.length > 1 && 's'}
       <Label.Detail>{genres.map((genre) => genre.name).join(', ')}</Label.Detail>
     </Label>
   );
-  /* eslint-enable camelcase */
 
 
   return (
@@ -113,15 +123,15 @@ const MediaHeader = (props) => {
       </Grid.Column>
       <Grid.Column width={13}>
         <h2>{title}</h2>
-        <p>{mediaData.overview}</p>
+        <p>{overview}</p>
         <div>
-          {category === 'tv' && renderTVLabels(mediaData)}
+          {category === 'tv' && renderTVLabels()}
           <Label>
-            {mediaData.status}
-            {category === 'movie' && <Label.Detail>{mediaData.release_date}</Label.Detail>}
+            {status}
+            {category === 'movie' && <Label.Detail>{releaseDate}</Label.Detail>}
           </Label>
-          {mediaData.vote_count >= 10 && renderScore(mediaData)}
-          {mediaData.genres.length > 0 && renderGenres(mediaData.genres)}
+          {voteCount >= 10 && renderScore()}
+          {genres.length > 0 && renderGenres()}
         </div>
 
         <Divider hidden />

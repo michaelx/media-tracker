@@ -1,5 +1,10 @@
+const initialState = {
+  category: '',
+  results: [],
+};
+
 export default (
-  state = { results: [], category: '' },
+  state = initialState,
   { type, results, category },
 ) => {
   switch (type) {

@@ -1,19 +1,28 @@
+const initialState = {
+  category: '',
+  results: [],
+  term: '',
+};
+
 export default (
-  state = { results: [], term: '', category: '' },
+  state = initialState,
   {
-    type,
+    category,
     results,
     term,
-    category,
+    type,
   },
 ) => {
   switch (type) {
     case 'SEARCH_MEDIA':
       return {
-        ...state, results, term, category,
+        ...state,
+        category,
+        results,
+        term,
       };
     case 'CLEAR_SEARCH_RESULT':
-      return { results: [], term: '', category: '' };
+      return initialState;
     default:
       return state;
   }

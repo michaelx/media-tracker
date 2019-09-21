@@ -13,10 +13,10 @@ const MediaCard = ({ data, category }) => {
       to={`/view/${category}/${data.id}`}
     >
       <Image
-        src={getCoverImage(data.poster_path)}
-        wrapped
-        ui={false}
         alt={`Poster for ${title}`}
+        src={getCoverImage(data.poster_path)}
+        ui={false}
+        wrapped
       />
       <Card.Content>
         <Card.Header style={{ fontSize: '1.125em' }}>{title}</Card.Header>

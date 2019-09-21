@@ -1,6 +1,6 @@
 {
   "name": "media-tracker",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Self-hosted open source media-tracker for tv shows and movies.",
   "author": "Michael Xander",
   "bugs": "https://github.com/michaelx/media-tracker/issues",
@@ -42,6 +42,8 @@
     ]
   },
   "devDependencies": {
-    "eslint-config-airbnb-base": "^14.0.0"
+    "eslint": "^6.4.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2"
   }
 }

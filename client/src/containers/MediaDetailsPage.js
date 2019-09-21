@@ -23,16 +23,6 @@ class MediaDetails extends React.Component {
     this.props.fetchMediaDetails(id, category);
   }
 
-  componentDidUpdate(prevProps) {
-    // Update, when something gets added to the todo database for the first time,
-    // so that its todo data gets fetched.
-    if (this.props.allCategoryTodos !== prevProps.allCategoryTodos) {
-      const { id, category } = this.props.match.params;
-
-      this.props.fetchTodo(id, category);
-    }
-  }
-
   componentWillUnmount() {
     this.props.clearMediaDetails();
     this.props.clearSelectedTodo();
@@ -40,8 +30,12 @@ class MediaDetails extends React.Component {
 
 
   renderAdditionalContent() {
-    /* eslint-disable camelcase */
-    const { id, number_of_seasons, seasons } = this.props.mediaDetails;
+    const {
+      id,
+      number_of_seasons: numberOfSeasons,
+      seasons,
+    } = this.props.mediaDetails;
+
     const { selectedTodo } = this.props;
 
     if (seasons && seasons.length > 0 && selectedTodo && selectedTodo.newestActiveSeason) {
@@ -52,14 +46,13 @@ class MediaDetails extends React.Component {
             <SeasonsContainer
               mediaId={id}
               newestActiveSeason={selectedTodo.newestActiveSeason}
-              numberOfSeasons={number_of_seasons}
+              numberOfSeasons={numberOfSeasons}
               todo={selectedTodo}
             />
           </Grid.Column>
         </Grid.Row>
       );
     }
-    /* eslint-enable camelcase */
 
     return null;
   }
@@ -86,10 +79,10 @@ class MediaDetails extends React.Component {
       <Segment>
         <Grid>
           <MediaHeader
-            mediaData={mediaDetails}
-            todo={selectedTodo}
             category={this.props.match.params.category}
             handleUpdate={this.handleUpdate}
+            mediaData={mediaDetails}
+            todo={selectedTodo}
           />
           {this.renderAdditionalContent()}
         </Grid>
@@ -99,8 +92,7 @@ class MediaDetails extends React.Component {
 }
 
 
-const mapStateToProps = (state, ownProps) => ({
-  allCategoryTodos: state.selectedTodo[ownProps.match.params.category],
+const mapStateToProps = (state) => ({
   mediaDetails: state.mediaDetails,
   selectedTodo: state.selectedTodo,
 });

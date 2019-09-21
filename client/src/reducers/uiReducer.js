@@ -1,14 +1,17 @@
-export default (
-  state = { activeNavItem: '', activeCategory: 'tv', activeSeason: null },
-  { type, payload },
-) => {
-  switch (type) {
+const initialState = {
+  activeCategory: 'tv',
+  activeNavItem: '',
+  activeSeason: null,
+};
+
+export default (state = initialState, action) => {
+  switch (action.type) {
     case 'UI_NAV_ITEM_SELECTED':
-      return { ...state, activeNavItem: payload };
+      return { ...state, activeNavItem: action.payload };
     case 'UI_CATEGORY_SELECTED':
-      return { ...state, activeCategory: payload };
+      return { ...state, activeCategory: action.payload };
     case 'UI_SEASON_SELECTED':
-      return { ...state, activeSeason: payload };
+      return { ...state, activeSeason: action.payload };
     case 'UI_CLEAR_SEASON_SELECTED':
       return { ...state, activeSeason: null };
     default:

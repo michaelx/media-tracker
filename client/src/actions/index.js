@@ -32,8 +32,8 @@ export const fetchAllTodos = (category) => async (dispatch) => {
 
   dispatch({
     type: 'FETCH_ALL_TODOS_OF_CATEGORY',
-    payload: response.data,
     category,
+    todos: response.data,
   });
 };
 
@@ -135,8 +135,8 @@ export const fetchAllDone = (category) => async (dispatch) => {
 
   dispatch({
     type: 'FETCH_ALL_DONE_OF_CATEGORY',
-    payload: response.data,
     category,
+    todos: response.data,
   });
 };
 
@@ -170,7 +170,6 @@ export const fetchTrending = (category) => async (dispatch) => {
     category,
   });
 };
-
 
 // Get media details from 3rd-party API
 export const fetchMediaDetails = (id, category) => async (dispatch) => {

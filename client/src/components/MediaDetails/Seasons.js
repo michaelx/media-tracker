@@ -13,16 +13,16 @@ const Seasons = (props) => {
   return (
     <Menu secondary>
       <Dropdown
+        defaultValue={selectedSeason}
         onChange={dropdownOnChange}
         options={dropdownOptions}
         selection
-        defaultValue={selectedSeason}
       />
       <Menu.Menu position="right">
         <Button
-          primary={!seasonDoneStatus}
           negative={seasonDoneStatus}
           onClick={buttonOnClick}
+          primary={!seasonDoneStatus}
         >
           Mark season as {seasonDoneStatus ? 'unwatched' : 'watched' }
         </Button>

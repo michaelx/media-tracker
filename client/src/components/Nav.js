@@ -10,22 +10,22 @@ const Nav = ({ onNavClick }) => {
     <Menu secondary>
       <Menu.Item
         as={NavLink}
-        to="/"
         exact
         name="To Do"
         onClick={handleOnClick}
+        to="/"
       />
       <Menu.Item
         as={NavLink}
-        to="/Done"
         name="Done"
         onClick={handleOnClick}
+        to="/done"
       />
       <Menu.Item
         as={NavLink}
-        to="/discover"
         name="Discover"
         onClick={handleOnClick}
+        to="/discover"
       />
     </Menu>
   );

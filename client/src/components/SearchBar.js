@@ -16,11 +16,11 @@ class SearchBar extends React.Component {
           onSubmit={this.onSubmit}
         >
           <Input
-            fluid
             action="Search"
+            fluid
+            onChange={(e) => this.setState({ term: e.target.value })}
             placeholder="Search"
             value={this.state.term}
-            onChange={(e) => this.setState({ term: e.target.value })}
           />
         </form>
       </Container>
