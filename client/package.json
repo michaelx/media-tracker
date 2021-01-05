@@ -7,7 +7,7 @@
   "license": "MIT",
   "repository": "https://github.com/michaelx/media-tracker",
   "dependencies": {
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "history": "^4.9.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
