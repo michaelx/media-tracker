@@ -61,7 +61,7 @@ The `client` (frontend) will run at `http://localhost:3000` (opens automatically
 
 Used style guides *(enforced with ESLint)*:
 
-- JavaScript: [airbnb-base](https://github.com/airbnb/javascript/tree/master/react)
+- ~~JavaScript: [airbnb-base](https://github.com/airbnb/javascript/tree/master/react)~~
 
 ### Available scripts
 
@@ -77,7 +77,7 @@ npm run eject # be careful :)
 In addition I added:
 
 ```sh
-npm run lint # the project uses eslint airbnb-base
+npm run lint
 ```
 
 ## Author
