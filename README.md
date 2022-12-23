@@ -80,6 +80,14 @@ In addition I added:
 npm run lint
 ```
 
+## Docker
+
+You can also run it with Docker:
+
+1. Add your TMDb API key as described above. *(In the future you’ll be able to do this through the docker-compose.yml)*
+2. In the root folder run: `docker-compose up -d`
+3. It will be available on `http://localhost`
+
 ## Author
 
 Michael Xander

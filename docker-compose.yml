@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  media-tracker_frontend:
+    image: media-tracker_frontend:latest
+    container_name: media-tracker_frontend
+    build:
+      context: client
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    networks:
+      - proxy
+    restart: unless-stopped
+
+  media-tracker_backend:
+    image: media-tracker_backend:latest
+    container_name: media-tracker_backend
+    build:
+      context: server
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    networks:
+      - proxy
+    restart: unless-stopped
+
+networks:
+  proxy:
+    driver: bridge
